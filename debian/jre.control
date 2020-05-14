@@ -1,0 +1,36 @@
+Architecture: amd64
+Pre-Depends: ${misc:Pre-Depends}
+Depends:
+  %prefix%-jre-headless (= ${binary:Version}),
+  libbsd0,
+  libc6,
+  libfontconfig1,
+  libfreetype6,
+  libpng16-16,
+  libx11-6,
+  libxau6,
+  libxcb1,
+  libxcomposite1,
+  libxdmcp6,
+  libxext6,
+  libxi6,
+  libxinerama1,
+  libxrandr2,
+  libxrender1,
+  libxtst6,
+  ${jre:Depends},
+  ${misc:Depends},
+Recommends: ${jre:Recommends}
+Suggests:
+  libasound2,
+  libcups2,
+  libgl1,
+  libglib2.0-0,
+  libgnome-2-0,
+  libgnomevfs2-0,
+  libgtk2.0-0,
+  libgtk-3-0,
+  libpcsclite1,
+  ${jre:Suggests},
+Provides: ${jre:Provides}
+Description: Java Runtime Environment

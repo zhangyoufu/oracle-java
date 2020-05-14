@@ -1,0 +1,19 @@
+Architecture: amd64
+Pre-Depends: ${misc:Pre-Depends}
+Depends:
+  java-common,
+  libc6,
+  zlib1g,
+  ${jre-headless:Depends},
+  ${misc:Depends},
+Recommends: ${jre-headless:Recommends}
+Suggests:
+  %prefix%-cacert (= ${source:Version}),
+  libcups2,
+  libfontconfig1,
+  libfreetype6,
+  libpcsclite1,
+  libpng16-16,
+  ${jre-headless:Suggests},
+Provides: ${jre-headless:Provides}
+Description: Java Runtime Environment (headless)

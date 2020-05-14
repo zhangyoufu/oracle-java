@@ -1,0 +1,11 @@
+Architecture: all
+Pre-Depends: ${misc:Pre-Depends}
+Depends:
+  %prefix%-jre-headless (= ${binary:Version}),
+  ca-certificates,
+  p11-kit,
+  ${cacerts:Depends},
+  ${misc:Depends},
+Recommends: ${cacerts:Recommends}
+Provides: ${cacerts:Provides}
+Description: use system ca-certificates instead of JRE bundled cacerts

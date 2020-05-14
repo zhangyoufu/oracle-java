@@ -1,0 +1,7 @@
+Architecture: all
+Pre-Depends: ${misc:Pre-Depends}
+Depends: ${source:Depends}, ${misc:Depends}
+Recommends: ${source:Recommends}
+Suggests: ${source:Suggests}
+Provides: ${source:Provides}
+Description: Java source file (src.zip)

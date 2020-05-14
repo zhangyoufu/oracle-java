@@ -1,0 +1,337 @@
+priority: 1082 # track https://bazaar.launchpad.net/~openjdk/openjdk/openjdk8/view/head:/debian/rules
+jinfo-ignore:
+- lib/visualvm/platform/lib/nbexec
+packages:
+  jre-headless:
+    depends:
+    - libgcc1
+    provides:
+    - java-runtime-headless
+    - java1-runtime-headless
+    - java2-runtime-headless
+    - java3-runtime-headless
+    - java4-runtime-headless
+    - java5-runtime-headless
+    - java6-runtime-headless
+    - java7-runtime-headless
+    - java8-runtime-headless
+    files:
+    - jre/COPYRIGHT
+    - jre/LICENSE
+    - jre/README
+    - jre/THIRDPARTYLICENSEREADME.txt
+    - jre/Welcome.html
+    - jre/bin/java
+    - jre/bin/jjs
+    - jre/bin/keytool
+    - jre/bin/orbd
+    - jre/bin/pack200
+    - jre/bin/rmid
+    - jre/bin/rmiregistry
+    - jre/bin/servertool
+    - jre/bin/tnameserv
+    - jre/bin/unpack200
+    - jre/lib/amd64/jli/libjli.so
+    - jre/lib/amd64/jvm.cfg
+    - jre/lib/amd64/libattach.so
+    - jre/lib/amd64/libawt.so
+    - jre/lib/amd64/libawt_headless.so
+    - jre/lib/amd64/libbci.so
+    - jre/lib/amd64/libdcpr.so
+    - jre/lib/amd64/libdt_socket.so
+    - jre/lib/amd64/libfontmanager.so
+    - jre/lib/amd64/libhprof.so
+    - jre/lib/amd64/libinstrument.so
+    - jre/lib/amd64/libj2gss.so
+    - jre/lib/amd64/libj2pcsc.so
+    - jre/lib/amd64/libj2pkcs11.so
+    - jre/lib/amd64/libjaas_unix.so
+    - jre/lib/amd64/libjava.so
+    - jre/lib/amd64/libjava_crw_demo.so
+    - jre/lib/amd64/libjawt.so
+    - jre/lib/amd64/libjdwp.so
+    - jre/lib/amd64/libjfr.so
+    - jre/lib/amd64/libjpeg.so
+    - jre/lib/amd64/libjsdt.so
+    - jre/lib/amd64/libjsig.so
+    - jre/lib/amd64/liblcms.so
+    - jre/lib/amd64/libmanagement.so
+    - jre/lib/amd64/libmlib_image.so
+    - jre/lib/amd64/libnet.so
+    - jre/lib/amd64/libnio.so
+    - jre/lib/amd64/libnpt.so
+    - jre/lib/amd64/libresource.so
+    - jre/lib/amd64/libsaproc.so
+    - jre/lib/amd64/libsctp.so
+    - jre/lib/amd64/libsunec.so
+    - jre/lib/amd64/libt2k.so
+    - jre/lib/amd64/libunpack.so
+    - jre/lib/amd64/libverify.so
+    - jre/lib/amd64/libzip.so
+    - jre/lib/amd64/server/Xusage.txt
+    - jre/lib/amd64/server/libjsig.so
+    - jre/lib/amd64/server/libjvm.so
+    - jre/lib/calendars.properties
+    - jre/lib/charsets.jar
+    - jre/lib/classlist
+    - jre/lib/cmm/
+    - jre/lib/content-types.properties
+    - jre/lib/currency.data
+    - jre/lib/ext/cldrdata.jar
+    - jre/lib/ext/dnsns.jar
+    - jre/lib/ext/localedata.jar
+    - jre/lib/ext/meta-index
+    - jre/lib/ext/nashorn.jar
+    - jre/lib/ext/sunec.jar
+    - jre/lib/ext/sunjce_provider.jar
+    - jre/lib/ext/sunpkcs11.jar
+    - jre/lib/ext/zipfs.jar
+    - jre/lib/flavormap.properties
+    - jre/lib/fontconfig.bfc
+    - jre/lib/fontconfig.properties.src
+    - jre/lib/fontconfig.RedHat.5.bfc
+    - jre/lib/fontconfig.RedHat.5.properties.src
+    - jre/lib/fontconfig.RedHat.6.bfc
+    - jre/lib/fontconfig.RedHat.6.properties.src
+    - jre/lib/fontconfig.SuSE.10.bfc
+    - jre/lib/fontconfig.SuSE.10.properties.src
+    - jre/lib/fontconfig.SuSE.11.bfc
+    - jre/lib/fontconfig.SuSE.11.properties.src
+    - jre/lib/fontconfig.Turbo.bfc
+    - jre/lib/fontconfig.Turbo.properties.src
+    - jre/lib/fonts/
+    - jre/lib/hijrah-config-umalqura.properties
+    - jre/lib/images/
+    - jre/lib/jce.jar
+    - jre/lib/jexec
+    - jre/lib/jfr.jar
+    - jre/lib/jfr/
+    - jre/lib/jsse.jar
+    - jre/lib/jvm.hprof.txt
+    - jre/lib/logging.properties
+    - jre/lib/management-agent.jar
+    - jre/lib/management/
+    - jre/lib/meta-index
+    - jre/lib/net.properties
+    - jre/lib/oblique-fonts/
+    - jre/lib/psfont.properties.ja
+    - jre/lib/psfontj2d.properties
+    - jre/lib/resources.jar
+    - jre/lib/rt.jar
+    - jre/lib/security/blacklist
+    - jre/lib/security/blacklisted.certs
+    - jre/lib/security/cacerts.oracle
+    - jre/lib/security/java.policy
+    - jre/lib/security/java.security
+    - jre/lib/security/policy/
+    - jre/lib/security/trusted.libraries
+    - jre/lib/sound.properties
+    - jre/lib/tzdb.dat
+    - release
+  jdk-headless:
+    depends:
+    - libc6
+    provides:
+    - java-compiler
+    - java-sdk-headless
+    - java1-sdk-headless
+    - java2-sdk-headless
+    - java3-sdk-headless
+    - java4-sdk-headless
+    - java5-sdk-headless
+    - java6-sdk-headless
+    - java7-sdk-headless
+    - java8-sdk-headless
+    files:
+    - COPYRIGHT
+    - LICENSE
+    - README.html
+    - THIRDPARTYLICENSEREADME.txt
+    - bin/extcheck
+    - bin/idlj
+    - bin/jar
+    - bin/jarsigner
+    - bin/java
+    - bin/javac
+    - bin/javadoc
+    - bin/javah
+    - bin/javap
+    - bin/jcmd
+    - bin/jdb
+    - bin/jdeps
+    - bin/jhat
+    - bin/jinfo
+    - bin/jjs
+    - bin/jmap
+    - bin/jps
+    - bin/jrunscript
+    - bin/jsadebugd
+    - bin/jstack
+    - bin/jstat
+    - bin/jstatd
+    - bin/keytool
+    - bin/native2ascii
+    - bin/orbd
+    - bin/pack200
+    - bin/rmic
+    - bin/rmid
+    - bin/rmiregistry
+    - bin/schemagen
+    - bin/serialver
+    - bin/servertool
+    - bin/tnameserv
+    - bin/unpack200
+    - bin/wsgen
+    - bin/wsimport
+    - bin/xjc
+    - include/classfile_constants.h
+    - include/jawt.h
+    - include/jdwpTransport.h
+    - include/jni.h
+    - include/jvmti.h
+    - include/jvmticmlr.h
+    - include/linux/jawt_md.h
+    - include/linux/jni_md.h
+    - lib/amd64/jli/libjli.so
+    - lib/amd64/libjawt.so
+    - lib/ct.sym
+    - lib/dt.jar
+    - lib/ir.idl
+    - lib/jexec
+    - lib/orb.idl
+    - lib/sa-jdi.jar
+    - lib/tools.jar
+  jre:
+    depends:
+    - libstdc++6
+    provides:
+    - java-runtime
+    - java1-runtime
+    - java2-runtime
+    - java3-runtime
+    - java4-runtime
+    - java5-runtime
+    - java6-runtime
+    - java7-runtime
+    - java8-runtime
+    files:
+    - jre/bin/ControlPanel
+    - jre/bin/javaws
+    - jre/bin/jcontrol
+    - jre/bin/policytool
+    - jre/lib/amd64/libawt_xawt.so
+    - jre/lib/amd64/libdeploy.so
+    - jre/lib/amd64/libjsound.so
+    - jre/lib/amd64/libjsoundalsa.so
+    - jre/lib/amd64/libnpjp2.so
+    - jre/lib/amd64/libsplashscreen.so
+    - jre/lib/applet/
+    - jre/lib/deploy.jar
+    - jre/lib/deploy/
+    - jre/lib/ext/jaccess.jar
+    - jre/lib/javaws.jar
+    - jre/lib/locale/de/LC_MESSAGES/sunw_java_plugin.mo
+    - jre/lib/locale/es/LC_MESSAGES/sunw_java_plugin.mo
+    - jre/lib/locale/fr/LC_MESSAGES/sunw_java_plugin.mo
+    - jre/lib/locale/it/LC_MESSAGES/sunw_java_plugin.mo
+    - jre/lib/locale/ja/LC_MESSAGES/sunw_java_plugin.mo
+    - jre/lib/locale/ko.UTF-8/LC_MESSAGES/sunw_java_plugin.mo
+    - jre/lib/locale/ko/LC_MESSAGES/sunw_java_plugin.mo
+    - jre/lib/locale/pt_BR/LC_MESSAGES/sunw_java_plugin.mo
+    - jre/lib/locale/sv/LC_MESSAGES/sunw_java_plugin.mo
+    - jre/lib/locale/zh.GBK/LC_MESSAGES/sunw_java_plugin.mo
+    - jre/lib/locale/zh/LC_MESSAGES/sunw_java_plugin.mo
+    - jre/lib/locale/zh_HK.BIG5HK/LC_MESSAGES/sunw_java_plugin.mo
+    - jre/lib/locale/zh_TW.BIG5/LC_MESSAGES/sunw_java_plugin.mo
+    - jre/lib/locale/zh_TW/LC_MESSAGES/sunw_java_plugin.mo
+    - jre/lib/plugin.jar
+    - jre/lib/security/javaws.policy
+    - jre/plugin/
+  jdk:
+    suggests:
+    - '%prefix%-visualvm (= ${binary:Version})'
+    provides:
+    - java-sdk
+    - java1-sdk
+    - java2-sdk
+    - java3-sdk
+    - java4-sdk
+    - java5-sdk
+    - java6-sdk
+    - java7-sdk
+    - java8-sdk
+    files:
+    - bin/appletviewer
+    - bin/ControlPanel
+    - bin/javaws
+    - bin/jconsole
+    - bin/jcontrol
+    - bin/policytool
+    - lib/jconsole.jar
+  source:
+    files:
+    - src.zip
+  cacerts:
+  javafx:
+    files:
+    - THIRDPARTYLICENSEREADME-JAVAFX.txt
+    - bin/javafxpackager
+    - bin/javapackager
+    - lib/ant-javafx.jar
+    - lib/javafx-mx.jar
+    - lib/packager.jar
+  javafx-runtime:
+    recommends:
+    # Ubuntu 16.04 xenial
+    - libavcodec-ffmpeg56
+    - libavformat-ffmpeg56
+    # Debian 8 jessie
+    - libavcodec56
+    - libavformat56
+    # Debian 9 stretch, Ubuntu 18.04 bionic
+    - libavcodec57
+    - libavformat57
+    # Debian 10 buster, Ubuntu 20.04 focal
+    - libavcodec58
+    - libavformat58
+    files:
+    - jre/THIRDPARTYLICENSEREADME-JAVAFX.txt
+    - jre/lib/amd64/libavplugin-53.so
+    - jre/lib/amd64/libavplugin-54.so
+    - jre/lib/amd64/libavplugin-55.so
+    - jre/lib/amd64/libavplugin-56.so
+    - jre/lib/amd64/libavplugin-57.so
+    - jre/lib/amd64/libavplugin-ffmpeg-56.so
+    - jre/lib/amd64/libavplugin-ffmpeg-57.so
+    - jre/lib/amd64/libavplugin-ffmpeg-58.so
+    - jre/lib/amd64/libdecora_sse.so
+    - jre/lib/amd64/libfxplugins.so
+    - jre/lib/amd64/libglass.so
+    - jre/lib/amd64/libglassgtk2.so
+    - jre/lib/amd64/libglassgtk3.so
+    - jre/lib/amd64/libglib-lite.so
+    - jre/lib/amd64/libgstreamer-lite.so
+    - jre/lib/amd64/libjavafx_font.so
+    - jre/lib/amd64/libjavafx_font_freetype.so
+    - jre/lib/amd64/libjavafx_font_pango.so
+    - jre/lib/amd64/libjavafx_iio.so
+    - jre/lib/amd64/libjfxmedia.so
+    - jre/lib/amd64/libjfxwebkit.so
+    - jre/lib/amd64/libprism_common.so
+    - jre/lib/amd64/libprism_es2.so
+    - jre/lib/amd64/libprism_sw.so
+    - jre/lib/ext/jfxrt.jar
+    - jre/lib/javafx.properties
+    - jre/lib/jfxswt.jar
+  javafx-source:
+    files:
+    - javafx-src.zip
+  missioncontrol:
+    files:
+    - bin/jmc
+    - bin/jmc.ini
+    - lib/missioncontrol/
+  visualvm:
+    files:
+    - bin/jvisualvm
+    - lib/visualvm/

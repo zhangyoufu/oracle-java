@@ -1,0 +1,181 @@
+on:
+  push:
+    paths:
+    - .github/actions/deb-builder/**
+    - .github/workflows/build.yml
+    - debian/**
+    - jdk*/**
+    - package.py
+    - requirements-build.txt
+    - source.py
+
+jobs:
+  sync:
+    if: "!contains(github.event.head_commit.message, '[ci skip]')"
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+    - name: Synchronize between workflow runs
+      uses: softprops/turnstyle@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  build:
+    needs: sync
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      matrix:
+        major: [8, 11, 14]
+    env:
+      MAJOR: ${{ matrix.major }}
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v2
+      with:
+        python-version: 3.x
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements-build.txt
+    - name: Load source.yml
+      run: ./source.py
+    - name: Load metadata from gh-pages
+      run: |
+        set +e
+        BODY=$(curl -fsSL https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/gh-pages/oracle-java-${MAJOR}.sh)
+        CODE=$?
+        set -e
+        if [ ${CODE} -eq 22 ]; then
+        	echo "last build not available"
+        	echo "::set-env name=LAST_VERSION::"
+        	echo "::set-env name=LAST_REVISION::"
+        	echo "::set-env name=LAST_CHECKSUM::"
+        else
+        	eval "${BODY}"
+        	echo "::set-env name=LAST_VERSION::${VERSION}"
+        	echo "::set-env name=LAST_REVISION::${REVISION}"
+        	echo "::set-env name=LAST_CHECKSUM::${CHECKSUM}"
+        fi
+    - name: Update metadata
+      env:
+        CHECKSUM: |-
+          ${{ hashFiles(format(join(fromJson('[
+            ".github/actions/deb-builder/**",
+            ".github/workflows/build.yml",
+            "jdk{0}/**",
+            "package.py",
+            "source.py",
+          ]'), fromJson('"\n"')), env.MAJOR)) }}
+      run: |
+        if [ "${CHECKSUM}" = "${LAST_CHECKSUM}" ]; then
+        	echo "::set-env name=VERSION::${LAST_VERSION}"
+        	echo "::set-env name=REVISION::${LAST_REVISION}"
+        	echo "::set-env name=CHECKSUM::${LAST_CHECKSUM}"
+        	echo "::set-env name=UPDATED::false"
+        elif [ "${VERSION}" = "${LAST_VERSION}" ]; then
+        	echo "::set-env name=VERSION::${LAST_VERSION}"
+        	echo "::set-env name=REVISION::$((LAST_REVISION+1))"
+        	echo "::set-env name=CHECKSUM::${CHECKSUM}"
+        	echo "::set-env name=UPDATED::true"
+        else
+        	echo "::set-env name=VERSION::${VERSION}"
+        	echo "::set-env name=REVISION::1"
+        	echo "::set-env name=CHECKSUM::${CHECKSUM}"
+        	echo "::set-env name=UPDATED::true"
+        fi
+    - name: Download JDK from cache
+      if: env.CHECKSUM != env.LAST_CHECKSUM
+      uses: actions/cache@v2
+      id: jdk-cache
+      with:
+        path: ${{ env.FILENAME }}
+        key: jdk-${{ env.SHA256 }}
+    - name: Download JDK from Oracle
+      if: env.CHECKSUM != env.LAST_CHECKSUM && steps.jdk-cache.outputs.cache-hit != 'true'
+      run: |
+        mkdir jdk
+        wget --quiet --show-progress --progress=dot:giga --output-document="${FILENAME}" --header 'Cookie: oraclelicense' "${URL}"
+    - name: Check JDK integrity
+      if: env.CHECKSUM != env.LAST_CHECKSUM
+      run: |
+        echo "${SHA256}  ${FILENAME}" | sha256sum --check
+    - name: Extract JDK
+      if: env.CHECKSUM != env.LAST_CHECKSUM
+      run: |
+        mkdir debian/tmp
+        tar --extract --file "${FILENAME}" --directory=debian/tmp --no-same-owner --strip-components=1
+    - name: Invoke JDK-specific prepare.sh
+      if: env.CHECKSUM != env.LAST_CHECKSUM
+      working-directory: ./debian/tmp
+      run: ../../jdk${{ env.MAJOR }}/prepare.sh
+    - name: Load package.yml
+      if: env.CHECKSUM != env.LAST_CHECKSUM
+      env:
+        MAINTAINER: ${{ secrets.MAINTAINER }}
+      run: ./package.py
+    - name: Build .deb
+      if: env.CHECKSUM != env.LAST_CHECKSUM
+      uses: ./.github/actions/deb-builder
+      with:
+        args: --build=binary --no-sign
+    - name: Download .deb from gh-pages
+      if: env.CHECKSUM == env.LAST_CHECKSUM
+      run: svn export --force "https://github.com/${GITHUB_REPOSITORY}/branches/gh-pages/pool/stable/o/oracle-java-${MAJOR}" .
+    - name: Save metadata
+      run: |
+        cat >oracle-java-${MAJOR}.sh <<-EOF
+        	VERSION=${VERSION}
+        	REVISION=${REVISION}
+        	CHECKSUM=${CHECKSUM}
+        	UPDATED=${UPDATED}
+        EOF
+    - name: Upload artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: jdk${{ env.MAJOR }}
+        path: |
+          *.deb
+          oracle-java-${{ env.MAJOR }}.sh
+  publish:
+    runs-on: ubuntu-18.04
+    needs: build
+    timeout-minutes: 10
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v2
+      with:
+        path: artifact
+    - name: Install aptly
+      run: |
+        sudo apt-get update
+        DEBIAN_FRONTEND=noninteractive sudo --preserve-env apt-get install --yes --no-install-recommends --option Dpkg::Use-Pty=0 aptly
+    - name: Import signing key
+      env:
+        SIGNING_KEY: ${{ secrets.SIGNING_KEY }}
+      run: |
+        gpg --import <<<${SIGNING_KEY}
+        gpg --list-secret-keys
+    - name: Sign and publish .deb
+      run: |
+        aptly repo create oracle-java
+        aptly repo add oracle-java artifact/*/*.deb
+        aptly publish repo -distribution any -component stable oracle-java
+    - name: Add extra files (public key & metadata)
+      run: |
+        gpg --export >~/.aptly/public/oracle-java.gpg
+        gpg --export --armor >~/.aptly/public/oracle-java.asc
+        mv artifact/*/*.sh ~/.aptly/public/
+    - name: Push to gh-pages
+      env:
+        PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+      run: |
+        cd ~/.aptly/public
+        git init .
+        git remote add origin https://github.com/${GITHUB_REPOSITORY}.git
+        git config http.https://github.com/.extraheader "Authorization: Basic $(echo -n "dummy:${PERSONAL_ACCESS_TOKEN}" | base64 --wrap=0)"
+        git checkout -b gh-pages
+        git add --all
+        git config user.name 'GitHub Actions'
+        git config user.email "$(whoami)@$(hostname --fqdn)"
+        git commit --message 'automatic commit'
+        git push --force --set-upstream origin gh-pages

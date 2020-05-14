@@ -1,0 +1,16 @@
+#!/usr/bin/make -f
+#export DH_VERBOSE = 1
+
+all:
+
+.PHONY: all binary build clean
+
+clean: # We have a clean environment by default. (using Docker container or something like that)
+
+build: # We don't build, just re-package upstream binary.
+
+binary:
+	dh_installdeb
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb

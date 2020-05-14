@@ -1,0 +1,174 @@
+priority: 1499
+jinfo-ignore:
+- lib/jspawnhelper
+packages:
+  jre-headless:
+    recommends:
+    # libsaproc.so
+    - libgcc1
+    - libstdc++6
+    provides:
+    - java-runtime-headless
+    - java1-runtime-headless
+    - java2-runtime-headless
+    - java3-runtime-headless
+    - java4-runtime-headless
+    - java5-runtime-headless
+    - java6-runtime-headless
+    - java7-runtime-headless
+    - java8-runtime-headless
+    - java9-runtime-headless
+    - java10-runtime-headless
+    - java11-runtime-headless
+    - java12-runtime-headless
+    - java13-runtime-headless
+    - java14-runtime-headless
+    files:
+    - bin/java
+    - bin/jfr
+    - bin/jjs
+    - bin/keytool
+    - bin/rmid
+    - bin/rmiregistry
+    - conf/
+    - lib/classlist
+    - lib/ct.sym
+    - lib/jexec
+    - lib/jfr/
+    - lib/jrt-fs.jar
+    - lib/jspawnhelper
+    - lib/jvm.cfg
+    - lib/libattach.so
+    - lib/libawt.so
+    - lib/libawt_headless.so
+    - lib/libdt_socket.so
+    - lib/libextnet.so
+    - lib/libfontmanager.so
+    - lib/libinstrument.so
+    - lib/libj2gss.so
+    - lib/libj2pcsc.so
+    - lib/libj2pkcs11.so
+    - lib/libjaas.so
+    - lib/libjava.so
+    - lib/libjavajpeg.so
+    - lib/libjdwp.so
+    - lib/libjimage.so
+    - lib/libjli.so
+    - lib/libjsig.so
+    - lib/liblcms.so
+    - lib/libmanagement.so
+    - lib/libmanagement_agent.so
+    - lib/libmanagement_ext.so
+    - lib/libmlib_image.so
+    - lib/libnet.so
+    - lib/libnio.so
+    - lib/libprefs.so
+    - lib/librmi.so
+    - lib/libsaproc.so
+    - lib/libsctp.so
+    - lib/libsunec.so
+    - lib/libverify.so
+    - lib/libzip.so
+    - lib/modules
+    - lib/psfont.properties.ja
+    - lib/psfontj2d.properties
+    - lib/security/blacklisted.certs
+    - lib/security/cacerts.oracle
+    - lib/security/default.policy
+    - lib/security/public_suffix_list.dat
+    - lib/server/classes.jsa
+    - lib/server/libjsig.so
+    - lib/server/libjvm.so
+    - lib/tzdb.dat
+    - release
+  jdk-headless:
+    provides:
+    - java-compiler
+    - java-sdk-headless
+    - java7-sdk-headless
+    - java8-sdk-headless
+    - java9-sdk-headless
+    - java10-sdk-headless
+    - java11-sdk-headless
+    - java12-sdk-headless
+    - java13-sdk-headless
+    - java14-sdk-headless
+    files:
+    - bin/jaotc
+    - bin/jar
+    - bin/jarsigner
+    - bin/javac
+    - bin/javadoc
+    - bin/javap
+    - bin/jcmd
+    - bin/jdb
+    - bin/jdeprscan
+    - bin/jdeps
+    - bin/jhsdb
+    - bin/jimage
+    - bin/jinfo
+    - bin/jlink
+    - bin/jmap
+    - bin/jmod
+    - bin/jpackage
+    - bin/jps
+    - bin/jrunscript
+    - bin/jshell
+    - bin/jstack
+    - bin/jstat
+    - bin/jstatd
+    - bin/rmic
+    - bin/serialver
+    - include/
+    - jmods/
+  jre:
+    suggests:
+    - libasound2
+    - libcups2
+    - libgl1
+    - libglib2.0-0
+    - libgnome-2-0
+    - libgnomevfs2-0
+    - libgtk2.0-0
+    - libgtk-3-0
+    - libpcsclite1
+    provides:
+    - java-runtime
+    - java1-runtime
+    - java2-runtime
+    - java3-runtime
+    - java4-runtime
+    - java5-runtime
+    - java6-runtime
+    - java7-runtime
+    - java8-runtime
+    - java9-runtime
+    - java10-runtime
+    - java11-runtime
+    - java12-runtime
+    - java13-runtime
+    - java14-runtime
+    files:
+    - lib/libawt_xawt.so
+    - lib/libjawt.so
+    - lib/libjsound.so
+    - lib/libsplashscreen.so
+  jdk:
+    suggests:
+    - visualvm
+    provides:
+    - java-sdk
+    - java7-sdk
+    - java8-sdk
+    - java9-sdk
+    - java10-sdk
+    - java11-sdk
+    - java12-sdk
+    - java13-sdk
+    - java14-sdk
+    files:
+    - bin/jconsole
+  source:
+    files:
+    - lib/src.zip
+  cacerts:

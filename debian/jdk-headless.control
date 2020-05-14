@@ -1,0 +1,12 @@
+Architecture: amd64
+Pre-Depends: ${misc:Pre-Depends}
+Depends:
+  %prefix%-jre-headless (= ${binary:Version}),
+  ${jdk-headless:Depends},
+  ${misc:Depends},
+Recommends: ${jdk-headless:Recommends}
+Suggests:
+  %prefix%-source (= ${source:Version}),
+  ${jdk-headless:Suggests},
+Provides: ${jdk-headless:Provides}
+Description: Java Development Kit (headless)

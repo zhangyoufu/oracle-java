@@ -1,0 +1,5 @@
+name: deb-builder
+description: build .deb packages
+runs:
+  using: docker
+  image: Dockerfile

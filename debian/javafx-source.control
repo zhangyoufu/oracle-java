@@ -1,0 +1,7 @@
+Architecture: all
+Pre-Depends: ${misc:Pre-Depends}
+Depends: ${javafx-source:Depends}, ${misc:Depends}
+Recommends: ${javafx-source:Recommends}
+Suggests: ${javafx-source:Suggests}
+Provides: ${javafx-source:Provides}
+Description: JavaFX source file (javafx-src.zip)

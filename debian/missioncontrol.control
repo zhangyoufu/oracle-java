@@ -1,0 +1,10 @@
+Architecture: amd64
+Pre-Depends: ${misc:Pre-Depends}
+Depends:
+  %prefix%-jdk (= ${binary:Version}),
+  ${missioncontrol:Depends},
+  ${misc:Depends},
+Recommends: ${missioncontrol:Recommends}
+Suggests: ${missioncontrol:Suggests}
+Provides: ${missioncontrol:Provides}
+Description: Java Mission Control
