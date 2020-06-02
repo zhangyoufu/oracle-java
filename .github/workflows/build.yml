@@ -137,7 +137,7 @@ jobs:
           *.deb
           oracle-java-${{ env.MAJOR }}.sh
   publish:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     needs: build
     timeout-minutes: 10
     steps:
@@ -153,8 +153,7 @@ jobs:
       env:
         SIGNING_KEY: ${{ secrets.SIGNING_KEY }}
       run: |
-        gpg --import <<<${SIGNING_KEY}
-        gpg --list-secret-keys
+        gpg1 --import <<<${SIGNING_KEY}
     - name: Sign and publish .deb
       run: |
         aptly repo create oracle-java
