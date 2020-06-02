@@ -93,7 +93,6 @@ jobs:
     - name: Download JDK from Oracle
       if: env.CHECKSUM != env.LAST_CHECKSUM && steps.jdk-cache.outputs.cache-hit != 'true'
       run: |
-        mkdir jdk
         wget --quiet --show-progress --progress=dot:giga --output-document="${FILENAME}" --header 'Cookie: oraclelicense' "${URL}"
     - name: Check JDK integrity
       if: env.CHECKSUM != env.LAST_CHECKSUM
