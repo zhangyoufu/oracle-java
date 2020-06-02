@@ -166,6 +166,7 @@ jobs:
         gpg --export --armor >~/.aptly/public/oracle-java.asc
         mv artifact/*/*.sh ~/.aptly/public/
     - name: Push to gh-pages
+      if: github.ref == 'refs/heads/master'
       env:
         PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
       run: |
