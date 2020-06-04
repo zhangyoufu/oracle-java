@@ -17,7 +17,7 @@
 1. download public key
 
    ```
-   # wget -nv -o /etc/apt/oracle-java.gpg https://zhangyoufu.github.io/oracle-java/oracle-java.gpg
+   # wget -nv -O /etc/apt/oracle-java.gpg https://zhangyoufu.github.io/oracle-java/oracle-java.gpg
    ```
    or
    ```
