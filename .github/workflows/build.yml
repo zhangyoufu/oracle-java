@@ -15,7 +15,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-    - name: Synchronize between workflow runs
+    - name: Serialize workflow runs
+      if: github.ref == 'refs/heads/master'
       uses: softprops/turnstyle@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
