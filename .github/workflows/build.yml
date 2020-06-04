@@ -25,7 +25,9 @@ jobs:
     timeout-minutes: 10
     strategy:
       matrix:
+# DONT-CHECKSUM-BEGIN
         major: [8, 11, 14]
+# DONT-CHECKSUM-END
     env:
       MAJOR: ${{ matrix.major }}
     steps:
@@ -58,15 +60,15 @@ jobs:
         fi
     - name: Update metadata
       env:
-        CHECKSUM: |-
-          ${{ hashFiles(format(join(fromJson('[
-            ".github/actions/deb-builder/**",
-            ".github/workflows/build.yml",
-            "jdk{0}/**",
-            "package.py",
-            "source.py",
-          ]'), fromJson('"\n"')), env.MAJOR)) }}
+        FILES: |-
+          .github/actions/deb-builder/**
+          .github/workflows/build.yml
+          debian/**
+          jdk${{ env.MAJOR }}/**
+          package.py
+          source.py
       run: |
+        CHECKSUM=$(./hashFiles.py <<<${FILES})
         if [ "${CHECKSUM}" = "${LAST_CHECKSUM}" ]; then
         	echo "::set-env name=VERSION::${LAST_VERSION}"
         	echo "::set-env name=REVISION::${LAST_REVISION}"
