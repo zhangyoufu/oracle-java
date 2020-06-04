@@ -5,7 +5,7 @@ on:
     - check.py
     - requirements-check.txt
   schedule:
-  - cron: '13 * * * *'
+  - cron: '*/5 * * * 2,3'
 
 jobs:
   sync:
