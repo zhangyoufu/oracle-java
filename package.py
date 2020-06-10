@@ -65,8 +65,7 @@ Package: {package_name_prefix}-{package_name}
 {data}''')
 
     ## generate debian/changelog
-    with open('debian/changelog', 'w') as f:
-        f.write(f'''\
+    pathlib.Path('debian/changelog').write_text(f'''\
 {package_name_prefix} ({version}-{revision}) unstable; urgency=low
 
   * {changelog}
@@ -76,8 +75,7 @@ Package: {package_name_prefix}-{package_name}
 
     ## generate jinfo header
     jinfo_path.parent.mkdir(mode=0o755, parents=True)
-    with open(jinfo_path, 'w') as f:
-        f.write(f'''\
+    jinfo_path.write_text(f'''\
 name={package_name_prefix}
 priority={priority}
 
@@ -109,8 +107,7 @@ def process(package_name, meta):
 
     if package_name == 'cacerts':
         path = pathlib.Path(f'debian/{package_name_prefix}-cacerts.postinst')
-        with open(path, 'w') as postinst:
-            postinst.write(f'''\
+        path.write_text(f'''\
 #!/bin/sh
 set -e
 
@@ -123,9 +120,8 @@ esac
 ''')
         path.chmod(0o755)
 
-        pathlib.Path(f'debian/{package_name_prefix}-cacerts.prerm')
-        with open(path, 'w') as prerm:
-            prerm.write(f'''\
+        path = pathlib.Path(f'debian/{package_name_prefix}-cacerts.prerm')
+        path.write_text(f'''\
 #/bin/sh
 set -e
 
@@ -140,9 +136,8 @@ esac
 
         path = pathlib.Path('debian/{package_name_prefix}-cacerts/etc/ca-certificates/update.d')
         path.mkdir(mode=0o755, parents=True)
-        path = path/f'{package_name_prefix}-cacerts'
-        with open(path, 'w') as f:
-            f.write(f'''\
+        path /= f'{package_name_prefix}-cacerts'
+        path.write_text(f'''\
 #!/bin/sh
 exec trust extract --overwrite --format=java-cacerts --filter=ca-anchors --purpose server-auth /{jvm}/{cacerts}.system
 ''')
