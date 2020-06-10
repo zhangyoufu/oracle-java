@@ -134,7 +134,7 @@ esac
 ''')
         path.chmod(0o755)
 
-        path = pathlib.Path('debian/{package_name_prefix}-cacerts/etc/ca-certificates/update.d')
+        path = pathlib.Path(f'debian/{package_name_prefix}-cacerts/etc/ca-certificates/update.d')
         path.mkdir(mode=0o755, parents=True)
         path /= f'{package_name_prefix}-cacerts'
         path.write_text(f'''\
