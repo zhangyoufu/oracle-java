@@ -115,6 +115,8 @@ jobs:
       env:
         MAINTAINER: ${{ secrets.MAINTAINER }}
       run: ./package.py
+    - name: Change file owner to root
+      run: sudo chown -R root:root debian/
     - name: Build .deb
       if: env.CHECKSUM != env.LAST_CHECKSUM
       uses: ./.github/actions/deb-builder
