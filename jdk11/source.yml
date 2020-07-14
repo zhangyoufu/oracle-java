@@ -1,3 +1,3 @@
-version: 11.0.7+8
-url: https://download.oracle.com/otn-pub/java/jdk/11.0.7%2B8/8c7daf89330c48f0b9e32f57169f7bac/jdk-11.0.7_linux-x64_bin.tar.gz
-sha256: a7334a400fe9a9dbb329e299ca5ebab6ec969b5659a3a72fe0d6f981dbca0224
+version: 11.0.8+10
+url: https://download.oracle.com/otn-pub/java/jdk/11.0.8%2B10/dc5cf74f97104e8eac863698146a7ac3/jdk-11.0.8_linux-x64_bin.tar.gz
+sha256: 6390878c91e29bad7b2483eb0b470620bd145269600f3b6a9d65724e6f83b6fd
