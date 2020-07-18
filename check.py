@@ -16,9 +16,9 @@ def main():
     )
 
     major = sys.argv[1]
+    url = sys.argv[2]
 
     # fetch download page
-    url = f'https://www.oracle.com/java/technologies/javase-jdk{major}-downloads.html'
     rsp = requests.get(url)
     logging.info(f'download page: {url} {rsp.status_code} {rsp.reason}')
     if rsp.status_code != 200:
