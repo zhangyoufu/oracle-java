@@ -2,4 +2,4 @@
 set -eu
 
 ## remove legal files
-rm -r "legal/"
+rm -r legal/

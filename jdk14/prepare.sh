@@ -2,7 +2,7 @@
 set -eu
 
 ## remove legal files
-rm -r "legal/"
+rm -r legal/
 
 ## remove unrelated manpages (manpages for Windows-only binaries)
 for title in jabswitch jaccessinspector jaccesswalker kinit klist ktab; do
