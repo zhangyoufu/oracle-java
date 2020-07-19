@@ -1,10 +1,12 @@
 #!/bin/sh
 set -eu
 
-## remove executable permission for shared library / jmc.ini
+## remove legal files
+rm -r legal/
+rm -r jre/legal/
+
+## remove executable permission for shared library
 find . -type f -name '*.so' -perm /111 -exec chmod -x '{}' +
-test -x bin/jmc.ini
-chmod -x bin/jmc.ini
 
 ## remove non-English manpages
 rm -r man/ja
@@ -16,3 +18,6 @@ rm bin/java-rmi.cgi
 ## remove desktop shortcuts/icons/mime
 rm -r jre/lib/desktop
 rm -r jre/plugin/desktop
+
+## remove jmc.txt
+rm jmc.txt

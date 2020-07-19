@@ -63,7 +63,6 @@
 * oracle-java-8-javafx
 * oracle-java-8-javafx-runtime
 * oracle-java-8-javafx-source
-* oracle-java-8-missioncontrol
 * oracle-java-8-visualvm
 
 ## Java 11 (LTS)

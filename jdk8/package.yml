@@ -326,11 +326,6 @@ packages:
   javafx-source:
     files:
     - javafx-src.zip
-  missioncontrol:
-    files:
-    - bin/jmc
-    - bin/jmc.ini
-    - lib/missioncontrol/
   visualvm:
     files:
     - bin/jvisualvm
