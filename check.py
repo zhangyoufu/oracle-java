@@ -53,9 +53,15 @@ def main():
 
     # parse download link
     url = url.replace('/otn/', '/otn-pub/')
-    m = re.match(r'https://download\.oracle\.com/otn-pub/java/jdk/([^/]+)/', url)
+    m = re.match(r'https://download\.oracle\.com/otn-pub/java/jdk/([^/]+)/([0-9a-f]{32})/', url)
     assert m, url
     version = urllib.parse.unquote(m.group(1), errors='strict')
+    bundle = m.group(2)
+    if major == '8':
+        m = re.fullmatch(r'8u(\d+)-b\d+', version)
+        assert m, version
+        minor = m.group(1)
+        url = f'https://javadl.oracle.com/webapps/download/GetFile/1.8.0_{version[2:]}/{bundle}/linux-i586/jdk-8u{minor}-linux-x64.tar.gz'
 
     # find checksum
     m = re.search(fr'<tr><td>{re.escape(filename)}</td><td>(.*?)</td></tr>', checksum_page)
