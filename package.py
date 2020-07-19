@@ -82,7 +82,7 @@ priority={priority}
 ''')
 
 def move(src, dst):
-    assert not dst.exists()
+    assert not dst.exists(), dst
     dst.parent.mkdir(mode=0o755, parents=True, exist_ok=True)
     src.rename(dst)
 
@@ -92,9 +92,9 @@ def process(package_name, meta):
     for path in meta.get('files') or []:
         src_path = src/path
         if path.endswith('/'):
-            assert src_path.is_dir()
+            assert src_path.is_dir(), src_path
         else:
-            assert src_path.is_file() or src_path.is_symlink()
+            assert src_path.is_file() or src_path.is_symlink(), src_path
         move(src_path, dst/path)
 
     purge = set()
