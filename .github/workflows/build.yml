@@ -50,14 +50,18 @@ jobs:
         set -e
         if [ ${CODE} -eq 22 ]; then
         	echo "last build not available"
-        	echo "::set-env name=LAST_VERSION::"
-        	echo "::set-env name=LAST_REVISION::"
-        	echo "::set-env name=LAST_CHECKSUM::"
+        	cat >$GITHUB_ENV <<-EOF
+        		LAST_VERSION=
+        		LAST_REVISION=
+        		LAST_CHECKSUM=
+        	EOF
         else
         	eval "${BODY}"
-        	echo "::set-env name=LAST_VERSION::${VERSION}"
-        	echo "::set-env name=LAST_REVISION::${REVISION}"
-        	echo "::set-env name=LAST_CHECKSUM::${CHECKSUM}"
+        	cat >$GITHUB_ENV <<-EOF
+        		LAST_VERSION=$VERSION
+        		LAST_REVISION=$REVISION
+        		LAST_CHECKSUM=$CHECKSUM
+        	EOF
         fi
     - name: Update metadata
       env:
@@ -71,20 +75,26 @@ jobs:
       run: |
         CHECKSUM=$(./hashFiles.py <<<${FILES})
         if [ "${CHECKSUM}" = "${LAST_CHECKSUM}" ]; then
-        	echo "::set-env name=VERSION::${LAST_VERSION}"
-        	echo "::set-env name=REVISION::${LAST_REVISION}"
-        	echo "::set-env name=CHECKSUM::${LAST_CHECKSUM}"
-        	echo "::set-env name=UPDATED::false"
+        	cat >$GITHUB_ENV <<-EOF
+        		VERSION=$LAST_VERSION
+        		REVISION=$LAST_REVISION
+        		CHECKSUM=$LAST_CHECKSUM
+        		UPDATED=false
+        	EOF
         elif [ "${VERSION}" = "${LAST_VERSION}" ]; then
-        	echo "::set-env name=VERSION::${LAST_VERSION}"
-        	echo "::set-env name=REVISION::$((LAST_REVISION+1))"
-        	echo "::set-env name=CHECKSUM::${CHECKSUM}"
-        	echo "::set-env name=UPDATED::true"
+        	cat >$GITHUB_ENV <<-EOF
+        		VERSION=$LAST_VERSION
+        		REVISION=$((LAST_REVISION+1))
+        		CHECKSUM=$CHECKSUM
+        		UPDATED=true
+        	EOF
         else
-        	echo "::set-env name=VERSION::${VERSION}"
-        	echo "::set-env name=REVISION::1"
-        	echo "::set-env name=CHECKSUM::${CHECKSUM}"
-        	echo "::set-env name=UPDATED::true"
+        	cat >$GITHUB_ENV <<-EOF
+        		VERSION=$VERSION
+        		REVISION=1
+        		CHECKSUM=$CHECKSUM
+        		UPDATED=true
+        	EOF
         fi
     - name: Download JDK from cache
       if: env.CHECKSUM != env.LAST_CHECKSUM

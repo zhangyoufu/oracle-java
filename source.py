@@ -3,24 +3,10 @@ import os
 import yaml
 import sys
 
-def escape_message(s):
-    return s.replace('%', '%25').replace('\r', '%0D').replace('\n', '%0A')
-
-def escape_property(s):
-    return s.replace('%', '%25').replace('\r', '%0D').replace('\n', '%0A').replace(':', '%3A').replace(',', '%2C')
-
-def issue(command, message, **properties):
-    if properties:
-        escaped_properties = ','.join(
-            f'{k}={escape_property(v)}'
-            for k, v in properties.items()
-        )
-        print(f'::{command} {escaped_properties}::{escape_message(message)}')
-    else:
-        print(f'::{command}::{escape_message(message)}')
-
 def set_env(name, value):
-    issue('set-env', value, name=name)
+    delimiter = '_GitHubActionsFileCommandDelimeter_'
+    with open(os.environ['GITHUB_ENV'], 'a') as f:
+        f.write(f'{name}<<{delimiter}\n{value}\n{delimiter}\n')
 
 def main():
     major = int(os.environ['MAJOR'])
