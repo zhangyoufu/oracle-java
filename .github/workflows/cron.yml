@@ -34,8 +34,8 @@ jobs:
       run: ./check.py 8 https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html
     - name: Check JDK 11 updates
       run: ./check.py 11 https://www.oracle.com/java/technologies/javase-jdk11-downloads.html
-    - name: Check JDK 14 updates
-      run: ./check.py 14 https://www.oracle.com/java/technologies/javase-jdk14-downloads.html
+    - name: Check JDK 15 updates
+      run: ./check.py 15 https://www.oracle.com/java/technologies/javase-jdk15-downloads.html
     - name: Commit if dirty
       env:
         PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}

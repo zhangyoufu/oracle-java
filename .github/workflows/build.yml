@@ -27,7 +27,7 @@ jobs:
     strategy:
       matrix:
 # DONT-CHECKSUM-BEGIN
-        major: [8, 11, 14]
+        major: [8, 11, 15]
 # DONT-CHECKSUM-END
     env:
       MAJOR: ${{ matrix.major }}

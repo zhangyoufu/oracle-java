@@ -1,4 +1,4 @@
-priority: 1499
+priority: 1599
 jinfo-ignore:
 - lib/jspawnhelper
 packages:
@@ -23,10 +23,10 @@ packages:
     - java12-runtime-headless
     - java13-runtime-headless
     - java14-runtime-headless
+    - java15-runtime-headless
     files:
     - bin/java
     - bin/jfr
-    - bin/jjs
     - bin/keytool
     - bin/rmid
     - bin/rmiregistry
@@ -77,6 +77,7 @@ packages:
     - lib/security/default.policy
     - lib/security/public_suffix_list.dat
     - lib/server/classes.jsa
+    - lib/server/classes_nocoops.jsa
     - lib/server/libjsig.so
     - lib/server/libjvm.so
     - lib/tzdb.dat
@@ -93,6 +94,7 @@ packages:
     - java12-sdk-headless
     - java13-sdk-headless
     - java14-sdk-headless
+    - java15-sdk-headless
     files:
     - bin/jaotc
     - bin/jar
@@ -117,7 +119,6 @@ packages:
     - bin/jstack
     - bin/jstat
     - bin/jstatd
-    - bin/rmic
     - bin/serialver
     - include/
     - jmods/
@@ -148,6 +149,7 @@ packages:
     - java12-runtime
     - java13-runtime
     - java14-runtime
+    - java15-runtime
     files:
     - lib/libawt_xawt.so
     - lib/libjawt.so
@@ -166,6 +168,7 @@ packages:
     - java12-sdk
     - java13-sdk
     - java14-sdk
+    - java15-sdk
     files:
     - bin/jconsole
   source:

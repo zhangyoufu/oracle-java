@@ -74,14 +74,14 @@
 * oracle-java-11-source
 * oracle-java-11-cacerts
 
-## Java 14
+## Java 15
 
-* oracle-java-14-jre-headless
-* oracle-java-14-jdk-headless
-* oracle-java-14-jre
-* oracle-java-14-jdk
-* oracle-java-14-source
-* oracle-java-14-cacerts
+* oracle-java-15-jre-headless
+* oracle-java-15-jdk-headless
+* oracle-java-15-jre
+* oracle-java-15-jdk
+* oracle-java-15-source
+* oracle-java-15-cacerts
 
 # Q&A
 
