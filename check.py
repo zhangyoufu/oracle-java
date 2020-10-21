@@ -42,8 +42,10 @@ def main():
     checksum_page = rsp.text
 
     # find download link
-    for m in re.finditer(r"data-file='(//[^']+)'", page):
-        url = 'https:' + m.group(1)
+    for m in re.finditer(r"data-file='((?:https:)?//[^']+)'", page):
+        url = m.group(1)
+        if url.startswith('//'):
+            url = 'https:' + m.group(1)
         filename = url.rsplit('/', 1)[1]
         assert re.fullmatch(r'[-_.0-9a-z]+', filename), filename
         if 'linux-x64' in filename and 'demos' not in filename and filename.endswith('.tar.gz'):
