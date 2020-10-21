@@ -223,7 +223,6 @@ packages:
     - jre/lib/amd64/libdeploy.so
     - jre/lib/amd64/libjsound.so
     - jre/lib/amd64/libjsoundalsa.so
-    - jre/lib/amd64/libnpjp2.so
     - jre/lib/amd64/libsplashscreen.so
     - jre/lib/applet/
     - jre/lib/deploy.jar
