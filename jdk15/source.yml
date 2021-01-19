@@ -1,3 +1,3 @@
-version: 15.0.1+9
-url: https://download.oracle.com/otn-pub/java/jdk/15.0.1%2B9/51f4f36ad4ef43e39d0dfdbaf6549e32/jdk-15.0.1_linux-x64_bin.tar.gz
-sha256: 445a1c5c335b53b030f68aca58493ddedd49f4b53085618bc1ae7aba68156606
+version: 15.0.2+7
+url: https://download.oracle.com/otn-pub/java/jdk/15.0.2%2B7/0d1cfde4252546c6931946de8db48ee2/jdk-15.0.2_linux-x64_bin.tar.gz
+sha256: 54b29a3756671fcb4b6116931e03e86645632ec39361bc16ad1aaa67332c7c61
