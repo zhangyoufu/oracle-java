@@ -1,0 +1,397 @@
+Package: oracle-java-11-cacerts
+Priority: optional
+Section: java
+Installed-Size: 9
+Maintainer: Youfu Zhang <zhangyoufu@gmail.com>
+Architecture: all
+Source: oracle-java-11
+Version: 11.0.10+8-1
+Depends: oracle-java-11-jre-headless (= 11.0.10+8-1), ca-certificates, p11-kit
+Filename: pool/stable/o/oracle-java-11/oracle-java-11-cacerts_11.0.10+8-1_all.deb
+Size: 1240
+MD5sum: 615d0720c450454c946264712f4ef646
+SHA1: e7cf26ab740c5fc463349bc9d747767a1bf7be6f
+SHA256: f4dcab040c8f0d83f497d8332173f4551a1530e820f6b9f74755c6b29643763e
+SHA512: 5fbbc195f15a9a4b0366c98cf11078290aaedbafc574752446bf822635b64bcf1960a784d50d0dea3bf514464de6fad133203520868552feefd4a303ac20a0a4
+Description: use system ca-certificates instead of JRE bundled cacerts
+
+Package: oracle-java-11-jdk
+Priority: optional
+Section: java
+Installed-Size: 22
+Maintainer: Youfu Zhang <zhangyoufu@gmail.com>
+Architecture: amd64
+Source: oracle-java-11
+Version: 11.0.10+8-1
+Provides: java-sdk, java10-sdk, java11-sdk, java6-sdk, java7-sdk, java8-sdk, java9-sdk
+Depends: oracle-java-11-jdk-headless (= 11.0.10+8-1), oracle-java-11-jre (= 11.0.10+8-1)
+Suggests: oracle-java-11-source (= 11.0.10+8-1), visualvm
+Filename: pool/stable/o/oracle-java-11/oracle-java-11-jdk_11.0.10+8-1_amd64.deb
+Size: 4292
+MD5sum: f07bb6ad254041f7c024ce226ab8102f
+SHA1: 9dc639779144dfdcc482aca14537d9914c495c54
+SHA256: f4b5e1333606a9643c8f7546208fc0b070bcf5f9a230f0865ef0c28e16a70023
+SHA512: 0b73f5557f918d1b47411b1e0fe2c6ef813ffa1bcda3e65b1d3a0f656baaf610041b16bbffaf11f7f7f018105223e1edb31effa516fe7be768ed6ff6f45b2834
+Description: Java Development Kit
+
+Package: oracle-java-11-jdk-headless
+Priority: optional
+Section: java
+Installed-Size: 79530
+Maintainer: Youfu Zhang <zhangyoufu@gmail.com>
+Architecture: amd64
+Source: oracle-java-11
+Version: 11.0.10+8-1
+Provides: java-compiler, java-sdk-headless, java10-sdk-headless, java11-sdk-headless, java6-sdk-headless, java7-sdk-headless, java8-sdk-headless, java9-sdk-headless
+Depends: oracle-java-11-jre-headless (= 11.0.10+8-1)
+Suggests: oracle-java-11-source (= 11.0.10+8-1)
+Filename: pool/stable/o/oracle-java-11/oracle-java-11-jdk-headless_11.0.10+8-1_amd64.deb
+Size: 73880072
+MD5sum: 2c0874a403356d5f0e30405f646f47ef
+SHA1: d7ecb620b8dffd05f17be5939150ea2a040c6323
+SHA256: 5d681a07546af7bbd7660a530b267d0f51e0bb3be0825ed40be5533840e7f9b7
+SHA512: 1aa25317858b11b5ca2ba58c7d544892ac91424a16fbf82ce47211f920f15a3cdfb423c2aae7befb2f07b91aedb29790ecb95dd00a9760f07a89a2cbfedaf3f0
+Description: Java Development Kit (headless)
+
+Package: oracle-java-11-jre
+Priority: optional
+Section: java
+Installed-Size: 2355
+Maintainer: Youfu Zhang <zhangyoufu@gmail.com>
+Architecture: amd64
+Source: oracle-java-11
+Version: 11.0.10+8-1
+Provides: java-runtime, java1-runtime, java10-runtime, java11-runtime, java2-runtime, java3-runtime, java4-runtime, java5-runtime, java6-runtime, java7-runtime, java8-runtime, java9-runtime
+Depends: oracle-java-11-jre-headless (= 11.0.10+8-1), libbsd0, libc6, libfontconfig1, libfreetype6, libpng16-16, libx11-6, libxau6, libxcb1, libxcomposite1, libxdmcp6, libxext6, libxi6, libxinerama1, libxrandr2, libxrender1, libxtst6
+Suggests: libasound2, libcups2, libgl1, libglib2.0-0, libgnome-2-0, libgnomevfs2-0, libgtk2.0-0, libgtk-3-0, libpcsclite1
+Filename: pool/stable/o/oracle-java-11/oracle-java-11-jre_11.0.10+8-1_amd64.deb
+Size: 826948
+MD5sum: b90d7ef9341ee538934dde8805ee88bc
+SHA1: 81786050a92da2cd10a67b814f08ee40e0d84e6e
+SHA256: 17afba94b32a99708fceb6e6b220f6b40f6bce8a9e1bd2526a05afc213b36dcb
+SHA512: f7ddf9c96e078460ed5bc133941987bfa7565d8451263f265aafd7fbfd379c82eb4b272aa3cbe9ea758ac046529269f59055b8ba2b123b5f8a083ed6a83e2087
+Description: Java Runtime Environment
+
+Package: oracle-java-11-jre-headless
+Priority: optional
+Section: java
+Installed-Size: 169367
+Maintainer: Youfu Zhang <zhangyoufu@gmail.com>
+Architecture: amd64
+Source: oracle-java-11
+Version: 11.0.10+8-1
+Provides: java-runtime-headless, java1-runtime-headless, java10-runtime-headless, java11-runtime-headless, java2-runtime-headless, java3-runtime-headless, java4-runtime-headless, java5-runtime-headless, java6-runtime-headless, java7-runtime-headless, java8-runtime-headless, java9-runtime-headless
+Depends: java-common, libc6, zlib1g
+Suggests: oracle-java-11-cacert (= 11.0.10+8-1), libcups2, libfontconfig1, libfreetype6, libpcsclite1, libpng16-16
+Filename: pool/stable/o/oracle-java-11/oracle-java-11-jre-headless_11.0.10+8-1_amd64.deb
+Size: 38292312
+MD5sum: 835da4ec2fdda9641043be6c3f98bfe7
+SHA1: 3a638ed8883d1a6424103fa4e71e1b7bbd42ad3c
+SHA256: 83b94d0b4db9233e6327e0792f3e3dc3e2d8e26d13c4ebe5bb37c57b8c43186c
+SHA512: f79cdf53e00834003b3c0a37d9c2843b7e673897ea5531a94f2c25497137b435c4be532794e6a497f33695cc8ad05ecc020d8de9bc9f571f5c100796cb232582
+Description: Java Runtime Environment (headless)
+
+Package: oracle-java-11-source
+Priority: optional
+Section: java
+Installed-Size: 47871
+Maintainer: Youfu Zhang <zhangyoufu@gmail.com>
+Architecture: all
+Source: oracle-java-11
+Version: 11.0.10+8-1
+Filename: pool/stable/o/oracle-java-11/oracle-java-11-source_11.0.10+8-1_all.deb
+Size: 44115568
+MD5sum: 437351a7d5dfd8e0bccf52f946be364b
+SHA1: 3a600dd8bca5f75355fe71a8b84f6c7b46dac58f
+SHA256: abdde2bccb9927236457798f92e84fdef776858427f78d6c427c635aaaadd457
+SHA512: 468cbc84cc31feb7d96a405a1d7cf9505c757afe64a16db918edbcf771e741099f9975a1db428701e30beac4359957561666ca5f8fa340861776c3c7721eaa70
+Description: Java source file (src.zip)
+
+Package: oracle-java-15-cacerts
+Priority: optional
+Section: java
+Installed-Size: 9
+Maintainer: Youfu Zhang <zhangyoufu@gmail.com>
+Architecture: all
+Source: oracle-java-15
+Version: 15.0.2+7-1
+Depends: oracle-java-15-jre-headless (= 15.0.2+7-1), ca-certificates, p11-kit
+Filename: pool/stable/o/oracle-java-15/oracle-java-15-cacerts_15.0.2+7-1_all.deb
+Size: 1240
+MD5sum: 92e0137851694428cf540df4e3326e38
+SHA1: 72c9c662f169939ba0816c72b358c4c29f9c7e66
+SHA256: 4f411eb445ac59d6c6ed80054abc9308318ccce74455edf0808212394b1d6596
+SHA512: 1bc96c31b94aef51a0b2e1755ddcd6b027caa890bc243aa841cb7024e51096d17e79171da8463ae21c31d16227936b144dabf68e8173728a1e3624cd10a7dfcd
+Description: use system ca-certificates instead of JRE bundled cacerts
+
+Package: oracle-java-15-jdk
+Priority: optional
+Section: java
+Installed-Size: 27
+Maintainer: Youfu Zhang <zhangyoufu@gmail.com>
+Architecture: amd64
+Source: oracle-java-15
+Version: 15.0.2+7-1
+Provides: java-sdk, java10-sdk, java11-sdk, java12-sdk, java13-sdk, java14-sdk, java15-sdk, java7-sdk, java8-sdk, java9-sdk
+Depends: oracle-java-15-jdk-headless (= 15.0.2+7-1), oracle-java-15-jre (= 15.0.2+7-1)
+Suggests: oracle-java-15-source (= 15.0.2+7-1), visualvm
+Filename: pool/stable/o/oracle-java-15/oracle-java-15-jdk_15.0.2+7-1_amd64.deb
+Size: 5388
+MD5sum: 4d49bab04c8e04556268100b4bb1c8f2
+SHA1: 8995e44c64b487628d24edff3900158ba26128f2
+SHA256: 60acaa2efac095f9bc485b197a87df7ffbf0ba093be65b759ee33d6db1a4d00a
+SHA512: 1244ad97eefe9508baee436c95eb0a5ef6088fd283b145f14ea39f0e65b68c5113ff1f71864b127e85fd5883dbecdc0b5a05211402bef7a1fe235293fde17306
+Description: Java Development Kit
+
+Package: oracle-java-15-jdk-headless
+Priority: optional
+Section: java
+Installed-Size: 79912
+Maintainer: Youfu Zhang <zhangyoufu@gmail.com>
+Architecture: amd64
+Source: oracle-java-15
+Version: 15.0.2+7-1
+Provides: java-compiler, java-sdk-headless, java10-sdk-headless, java11-sdk-headless, java12-sdk-headless, java13-sdk-headless, java14-sdk-headless, java15-sdk-headless, java7-sdk-headless, java8-sdk-headless, java9-sdk-headless
+Depends: oracle-java-15-jre-headless (= 15.0.2+7-1)
+Suggests: oracle-java-15-source (= 15.0.2+7-1)
+Filename: pool/stable/o/oracle-java-15/oracle-java-15-jdk-headless_15.0.2+7-1_amd64.deb
+Size: 74407648
+MD5sum: b8af41f7b765ac6c801bc4da5e40e1f3
+SHA1: 779460af19383338cc4b86d2e2eff86265988a03
+SHA256: 4afe3cc3b6ad9e11e274677981407b45c8d82185e8dfc7c0c45ccd260baa28a1
+SHA512: b5971543c5180b20da715c2f7af585f8f843dc49dd63cf733f1609cde265587f60b2084b5144d4ae54c806cdf9450a4dd09e81ff9f578f330983adb227cc4fb6
+Description: Java Development Kit (headless)
+
+Package: oracle-java-15-jre
+Priority: optional
+Section: java
+Installed-Size: 916
+Maintainer: Youfu Zhang <zhangyoufu@gmail.com>
+Architecture: amd64
+Source: oracle-java-15
+Version: 15.0.2+7-1
+Provides: java-runtime, java1-runtime, java10-runtime, java11-runtime, java12-runtime, java13-runtime, java14-runtime, java15-runtime, java2-runtime, java3-runtime, java4-runtime, java5-runtime, java6-runtime, java7-runtime, java8-runtime, java9-runtime
+Depends: oracle-java-15-jre-headless (= 15.0.2+7-1), libbsd0, libc6, libfontconfig1, libfreetype6, libpng16-16, libx11-6, libxau6, libxcb1, libxcomposite1, libxdmcp6, libxext6, libxi6, libxinerama1, libxrandr2, libxrender1, libxtst6
+Suggests: libasound2, libcups2, libgl1, libglib2.0-0, libgnome-2-0, libgnomevfs2-0, libgtk2.0-0, libgtk-3-0, libpcsclite1
+Filename: pool/stable/o/oracle-java-15/oracle-java-15-jre_15.0.2+7-1_amd64.deb
+Size: 317588
+MD5sum: d7f12d69825678d5fda620ca524d67c7
+SHA1: f805dd71ba9921b00ba0c51efc4dcdb0c160685a
+SHA256: f3130c83e8d53419e0756baccd19828e378ac6e57221a6b2eab6a29c74404c4d
+SHA512: 9a8bfc55dff28d589ed28a0597ac58d6972a51550a8be3156319beb676dbc5709366a2b9d612f5f029186c1b7de6af58e87a4dd42237284aeb2ba40cda6354bc
+Description: Java Runtime Environment
+
+Package: oracle-java-15-jre-headless
+Priority: optional
+Section: java
+Installed-Size: 193640
+Maintainer: Youfu Zhang <zhangyoufu@gmail.com>
+Architecture: amd64
+Source: oracle-java-15
+Version: 15.0.2+7-1
+Provides: java-runtime-headless, java1-runtime-headless, java10-runtime-headless, java11-runtime-headless, java12-runtime-headless, java13-runtime-headless, java14-runtime-headless, java15-runtime-headless, java2-runtime-headless, java3-runtime-headless, java4-runtime-headless, java5-runtime-headless, java6-runtime-headless, java7-runtime-headless, java8-runtime-headless, java9-runtime-headless
+Depends: java-common, libc6, zlib1g
+Recommends: libgcc1, libstdc++6
+Suggests: oracle-java-15-cacert (= 15.0.2+7-1), libcups2, libfontconfig1, libfreetype6, libpcsclite1, libpng16-16
+Filename: pool/stable/o/oracle-java-15/oracle-java-15-jre-headless_15.0.2+7-1_amd64.deb
+Size: 45014620
+MD5sum: 226efee110402114cf128a854ab1e5d8
+SHA1: ffe69e470b9e63472164069ec30900438961c394
+SHA256: 4ce45478af3c0b6e0c8f035354ffd4b1e5d3540d61f39698fdb07794c574e563
+SHA512: 134e795603275d35c6d23d3c95ef1132723945b5bc91c806fd2a1f22414234c38be980d05b8968f955d3c27114d059b9480dfc63981874a18e876f4e5f5f2b08
+Description: Java Runtime Environment (headless)
+
+Package: oracle-java-15-source
+Priority: optional
+Section: java
+Installed-Size: 46773
+Maintainer: Youfu Zhang <zhangyoufu@gmail.com>
+Architecture: all
+Source: oracle-java-15
+Version: 15.0.2+7-1
+Filename: pool/stable/o/oracle-java-15/oracle-java-15-source_15.0.2+7-1_all.deb
+Size: 43029348
+MD5sum: 1d334205911f1f1c937df613583685fb
+SHA1: 972416265a8054786b93d1b7c978d14756a648a7
+SHA256: c008fdb3ea6c330b167cd533ca13d1387ed917fdd26987d6494a108716310cd1
+SHA512: 4f12b8cade49d19df45e87f6b29fa7464fe7880f67b9c89f46c0e4a683d7a156148a86cb297ffc4616ca03bec61be2436d9e1c4ebdde29bb5ac59f8699a70c3f
+Description: Java source file (src.zip)
+
+Package: oracle-java-8-cacerts
+Priority: optional
+Section: java
+Installed-Size: 9
+Maintainer: Youfu Zhang <zhangyoufu@gmail.com>
+Architecture: all
+Source: oracle-java-8
+Version: 8u281-b09-1
+Depends: oracle-java-8-jre-headless (= 8u281-b09-1), ca-certificates, p11-kit
+Filename: pool/stable/o/oracle-java-8/oracle-java-8-cacerts_8u281-b09-1_all.deb
+Size: 1244
+MD5sum: 0d9113971c031c9ec12d09b535350014
+SHA1: 90cbd7deaf66d79d94429a2c626e436df48d90d4
+SHA256: 101af04f9dfc376a13adbd98e1e4d481acff5e2ca7c48349adb46ce410131044
+SHA512: c6505946df3704ab99c22432d33bc403d9b1fb8ca17a328a4ce3a53dd7147e39ae7afd4b8d219c0cbe6e58bbb9941a5b1bcd3fe94ce9edba2eaba254cc2789e2
+Description: use system ca-certificates instead of JRE bundled cacerts
+
+Package: oracle-java-8-javafx
+Priority: optional
+Section: java
+Installed-Size: 4727
+Maintainer: Youfu Zhang <zhangyoufu@gmail.com>
+Architecture: amd64
+Source: oracle-java-8
+Version: 8u281-b09-1
+Depends: oracle-java-8-jdk (= 8u281-b09-1)
+Filename: pool/stable/o/oracle-java-8/oracle-java-8-javafx_8u281-b09-1_amd64.deb
+Size: 4696588
+MD5sum: d6d52aee71ac13b74101ea7df750e7de
+SHA1: 79da307bbc3ea45154c4074d5f7669a2220e0576
+SHA256: d3a37a46a3528272bd4f6f73208f6c61e1df4cf8431baf20dbf1aa5444b7c6e8
+SHA512: 71766880459b2e37984a5b792e922dc37266311550ab6e5ffba1d3cbca96963ebd364aa052c72d3d3d7f1a90336ecf97b8b43295a9668f8155ab38f31ab11139
+Description: JavaFX
+
+Package: oracle-java-8-javafx-runtime
+Priority: optional
+Section: java
+Installed-Size: 128210
+Maintainer: Youfu Zhang <zhangyoufu@gmail.com>
+Architecture: amd64
+Source: oracle-java-8
+Version: 8u281-b09-1
+Depends: oracle-java-8-jre (= 8u281-b09-1), libc6, libgl1, libgtk2.0-0 | libgtk-3-0, libpng16-16, libstdc++6
+Recommends: libavcodec-ffmpeg56, libavformat-ffmpeg56, libavcodec56, libavformat56, libavcodec57, libavformat57, libavcodec58, libavformat58
+Suggests: libasound2, libatspi2.0-0, libblkid1, libbsd0, libdatrie1, libdbus-1-3, libexpat1, libffi6, libfribidi0, libgcrypt20, libgpg-error0, libgraphite2-3, liblz4-1, liblzma5, libmount1, libpcre2-8-0, libpcre3, libpixman-1-0, libselinux1, libsystemd0, libthai0, libuuid1, libxau6, libxcb1, libxcb-render0, libxcb-shm0, libxdmcp6, libxtst6, libxxf86vm1
+Filename: pool/stable/o/oracle-java-8/oracle-java-8-javafx-runtime_8u281-b09-1_amd64.deb
+Size: 28107420
+MD5sum: 5f1ef6b230acb0bad40baed74e69dce1
+SHA1: aa4e526167f20dfb584542832bf2686cb89942b0
+SHA256: f9735869584502b455e2d5ff61cdfd441dc9a02c908c1f08f3790e25b392e09c
+SHA512: 559b5322a68089f7bb845219da88a1b025bc98a455c6d5623a74466b35c016f22a85d5632d93bea7eac35f61fbb2a40e6ed4deabc79162d11f1cd410feb6550e
+Description: JavaFX Runtime
+
+Package: oracle-java-8-javafx-source
+Priority: optional
+Section: java
+Installed-Size: 5111
+Maintainer: Youfu Zhang <zhangyoufu@gmail.com>
+Architecture: all
+Source: oracle-java-8
+Version: 8u281-b09-1
+Filename: pool/stable/o/oracle-java-8/oracle-java-8-javafx-source_8u281-b09-1_all.deb
+Size: 4909656
+MD5sum: f348ef7ef0a41632658d03ae45f43ee1
+SHA1: 91c9d0c694d06ecb9b9cebec827ec85bbbce04d1
+SHA256: 223e0346698cd45c899f7b697355e23aa0d49f54740710d7e15fb768eaa6ebf8
+SHA512: 41d699abaa48b1902ff03d18f855f394ddea832bc0711afbb94e2d9257aedb4664e880d9fe1052d78c443b5c4260b19707c5ce7a7406a29e2d07c97f70891a9b
+Description: JavaFX source file (javafx-src.zip)
+
+Package: oracle-java-8-jdk
+Priority: optional
+Section: java
+Installed-Size: 601
+Maintainer: Youfu Zhang <zhangyoufu@gmail.com>
+Architecture: amd64
+Source: oracle-java-8
+Version: 8u281-b09-1
+Provides: java-sdk, java1-sdk, java2-sdk, java3-sdk, java4-sdk, java5-sdk, java6-sdk, java7-sdk, java8-sdk
+Depends: oracle-java-8-jdk-headless (= 8u281-b09-1), oracle-java-8-jre (= 8u281-b09-1)
+Suggests: oracle-java-8-source (= 8u281-b09-1), oracle-java-8-visualvm (= 8u281-b09-1)
+Filename: pool/stable/o/oracle-java-8/oracle-java-8-jdk_8u281-b09-1_amd64.deb
+Size: 411908
+MD5sum: 3e746e3c4718e0157c73d3450bc87e72
+SHA1: 83f92c9673582a07da01275d5010531dc746a90a
+SHA256: 9dc7fbf0a6beaef4e42c5de78fd057e83d2b655a62f21d1abb13ac541d2bb475
+SHA512: e3015c753c030ebd00065bf77cef1f53ffe1d9db6daed89174a7e90cf9a22c358119088337abd1e0d78543cf47763adda7de19307f9b81fc5bb9f4d3a8573931
+Description: Java Development Kit
+
+Package: oracle-java-8-jdk-headless
+Priority: optional
+Section: java
+Installed-Size: 39735
+Maintainer: Youfu Zhang <zhangyoufu@gmail.com>
+Architecture: amd64
+Source: oracle-java-8
+Version: 8u281-b09-1
+Provides: java-compiler, java-sdk-headless, java1-sdk-headless, java2-sdk-headless, java3-sdk-headless, java4-sdk-headless, java5-sdk-headless, java6-sdk-headless, java7-sdk-headless, java8-sdk-headless
+Depends: oracle-java-8-jre-headless (= 8u281-b09-1), libc6
+Suggests: oracle-java-8-source (= 8u281-b09-1)
+Filename: pool/stable/o/oracle-java-8/oracle-java-8-jdk-headless_8u281-b09-1_amd64.deb
+Size: 8267716
+MD5sum: e52958d3499beaa36ac71697b07f905d
+SHA1: ea1bd01e8ce71150e3228a854531d4958d4b48d6
+SHA256: 5bb054ce09c20b8b8f33a76cca125996b1080ec5d6a38106f2c8238b399c8e10
+SHA512: be73c149c9c098be09878156eb258875187d6877e097a929626b867d3371e31dadeac2102ba3eeb82304a4748c86aabc1b3b451249b164a9326ff39dcd0220ba
+Description: Java Development Kit (headless)
+
+Package: oracle-java-8-jre
+Priority: optional
+Section: java
+Installed-Size: 5669
+Maintainer: Youfu Zhang <zhangyoufu@gmail.com>
+Architecture: amd64
+Source: oracle-java-8
+Version: 8u281-b09-1
+Provides: java-runtime, java1-runtime, java2-runtime, java3-runtime, java4-runtime, java5-runtime, java6-runtime, java7-runtime, java8-runtime
+Depends: oracle-java-8-jre-headless (= 8u281-b09-1), libbsd0, libc6, libfontconfig1, libfreetype6, libpng16-16, libx11-6, libxau6, libxcb1, libxcomposite1, libxdmcp6, libxext6, libxi6, libxinerama1, libxrandr2, libxrender1, libxtst6, libstdc++6
+Suggests: libasound2, libcups2, libgl1, libglib2.0-0, libgnome-2-0, libgnomevfs2-0, libgtk2.0-0, libgtk-3-0, libpcsclite1
+Filename: pool/stable/o/oracle-java-8/oracle-java-8-jre_8u281-b09-1_amd64.deb
+Size: 3754004
+MD5sum: 21e8cb80c50b9518bdcedd76c99cad3b
+SHA1: a444bd43f8cf2b862d6fba4d0f34ffe8610735d4
+SHA256: c1a5c95a3d0c351c72aec21811182a466a58a5be951aae2d774749992dab2fe7
+SHA512: 48057a904f9bfcf2365cd09234a81bcb4044884911393292fab697e013e0797128d23385dafdfabb02ddba6cbba8b9e2b8a9a66616a80e338a66594170180173
+Description: Java Runtime Environment
+
+Package: oracle-java-8-jre-headless
+Priority: optional
+Section: java
+Installed-Size: 108963
+Maintainer: Youfu Zhang <zhangyoufu@gmail.com>
+Architecture: amd64
+Source: oracle-java-8
+Version: 8u281-b09-1
+Provides: java-runtime-headless, java1-runtime-headless, java2-runtime-headless, java3-runtime-headless, java4-runtime-headless, java5-runtime-headless, java6-runtime-headless, java7-runtime-headless, java8-runtime-headless
+Depends: java-common, libc6, zlib1g, libgcc1
+Suggests: oracle-java-8-cacert (= 8u281-b09-1), libcups2, libfontconfig1, libfreetype6, libpcsclite1, libpng16-16
+Filename: pool/stable/o/oracle-java-8/oracle-java-8-jre-headless_8u281-b09-1_amd64.deb
+Size: 30439384
+MD5sum: fbc2b9155b068705990cd1075a248e44
+SHA1: c482dfca7a637d4a0784cfc902dab5c4e8aa986a
+SHA256: b8ba21db04d64ddf126ce6bdc923fec0cde12bf9239f7c225b425b0f03f2e595
+SHA512: 4a0e36ac86040ce8772b553d081f82433c639baaefe1642f6cccbee72ad656b27b43cf093924144928ad9b4c593f78bc013948626f41fcc228077eddc0e89330
+Description: Java Runtime Environment (headless)
+
+Package: oracle-java-8-source
+Priority: optional
+Section: java
+Installed-Size: 20659
+Maintainer: Youfu Zhang <zhangyoufu@gmail.com>
+Architecture: all
+Source: oracle-java-8
+Version: 8u281-b09-1
+Filename: pool/stable/o/oracle-java-8/oracle-java-8-source_8u281-b09-1_all.deb
+Size: 19724492
+MD5sum: 84e2b495965fe1302bffa6dff78a1011
+SHA1: 80c0b7c7b769888c546bdde025a346fc28798a54
+SHA256: 1690450154b630b116f93eaf371add0febaf90e7eea8cbc3283d11168204867a
+SHA512: ebdc569e416208a6235a44783c0c3d350a0798d61e6bd232bcccd38619768a32dcab170fb9744877716cce4a6e95f475fa5495639ec650bfaf3dc830a3059b6d
+Description: Java source file (src.zip)
+
+Package: oracle-java-8-visualvm
+Priority: optional
+Section: java
+Installed-Size: 33577
+Maintainer: Youfu Zhang <zhangyoufu@gmail.com>
+Architecture: amd64
+Source: oracle-java-8
+Version: 8u281-b09-1
+Depends: oracle-java-8-jdk (= 8u281-b09-1)
+Filename: pool/stable/o/oracle-java-8/oracle-java-8-visualvm_8u281-b09-1_amd64.deb
+Size: 7849816
+MD5sum: c61438bd6e566d1c2dd47fc052912f39
+SHA1: 59bb70ef919ea34e1da64511d44660aefb692e11
+SHA256: 9fd74832b34a0a896f3ad7b8f075911ab64813b4380871b12006d447a76cedb4
+SHA512: ecef11d94c6e8ceff1ca7d787931385cd5910583772fa37785446dcf87c479eddc7eef82cf31a2b1ac40e787ff5a64f0426ff78ce66141137d60efd86e04b442
+Description: Java VisualVM
+
