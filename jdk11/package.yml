@@ -1,4 +1,6 @@
 priority: 1199
+jinfo-ignore:
+- lib/jspawnhelper
 packages:
   jre-headless:
     provides:
@@ -31,6 +33,7 @@ packages:
     - lib/jfr/
     - lib/jli/
     - lib/jrt-fs.jar
+    - lib/jspawnhelper
     - lib/jvm.cfg
     - lib/libattach.so
     - lib/libawt.so
@@ -128,6 +131,7 @@ packages:
     - java11-runtime
     files:
     - lib/libawt_xawt.so
+    - lib/libharfbuzz.so
     - lib/libjawt.so
     - lib/libjsound.so
     - lib/libsplashscreen.so
